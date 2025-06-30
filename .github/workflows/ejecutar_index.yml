@@ -1,0 +1,24 @@
+name: Flujo seguimiento Stage 1 y Stage 2
+
+on:
+  schedule:
+    # Todos los jueves a las 10:00 hora de España (CET/CEST)
+    - cron: "0 8 * * 4" # 8:00 UTC = 10:00 CET/CEST
+
+jobs:
+  run-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Ejecutar index.js
+        run: node index.js
