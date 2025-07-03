@@ -4,6 +4,7 @@ on:
   schedule:
     # Todos los jueves a las 10:00 hora de España (CET/CEST)
     - cron: "0 8 * * 4" # 8:00 UTC = 10:00 CET/CEST
+  workflow_dispatch:
 
 jobs:
   run-index:
